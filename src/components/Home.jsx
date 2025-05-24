@@ -1,91 +1,55 @@
-import React, { use, useState } from "react";
-import layer1 from "../assets/home-layer1.png";
-import layer2 from "../assets/home-layer2.png";
-import layer3 from "../assets/home-layer3.png";
-import camera from "../assets/home-camera_layer.png";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import image from "../assets/image-copy.png";
+import camera from "../assets/home-camera_layer.png";
 
 const Home = () => {
-  // Add logging to verify images are loading
-  const [isCameraHovered, setIsCameraHovered] = useState(false);
-  const naviage = useNavigate();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    alert("camera clicked");
+    navigate("/about");
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-screen bg-transparent">
       <h1 className="text-[180px] font-extralight">Portfolio</h1>
 
-      {/* Fix the nested divs issue - only one container */}
-      <div
-        style={{
-          position: "relative",
-          width: "500px",
-          height: "400px",
-        }}
-        onClick={() => {
-          naviage("/about");
-        }}
-      >
-        {/* Layer 1 - with background color for visibility debugging */}
+      <div className="relative w-[500px] h-[400px]">
+        {/* Background Layer */}
         <img
-          src={layer1}
+          src={image}
           alt="Folder Bottom"
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: 15,
-            objectFit: "cover",
-          }}
+          className="absolute left-0 top-0 w-full h-full object-cover"
         />
+
+        {/* Camera Layer */}
         <img
           src={camera}
-          alt="Camera"
+          alt="Camera Icon"
+          onClick={handleClick}
+          className="
+            absolute 
+            left-1/2 
+            top-[35%] 
+            w-[40%] 
+            h-[50%] 
+            opacity-80 
+            object-cover 
+            cursor-pointer 
+            transform 
+            -translate-x-[20%] 
+            -translate-y-[80%] 
+            transition 
+            duration-300 
+            ease-in-out 
+            hover:scale-125 
+          "
           style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: 15,
-            objectFit: "cover",
-            transition: "transform 0.3s ease",
-            transform: isCameraHovered ? "translateY(-25px)" : "translateY(0)",
-            cursor: "pointer",
-          }}
-          onMouseEnter={() => setIsCameraHovered(true)}
-          onMouseLeave={() => setIsCameraHovered(false)}
-        />
-
-        {/* Layer 2 */}
-        <img
-          src={layer2}
-          alt="Folder Content"
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: 20,
-            backgroundColor: "rgba(0,255,0,0.1)", // Debug tint
-            objectFit: "cover",
-          }}
-        />
-
-        {/* Layer 3 */}
-        <img
-          src={layer3}
-          alt="Folder Top"
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: 30,
-            backgroundColor: "rgba(0,0,255,0.1)", // Debug tint
-            objectFit: "cover",
+            backgroundColor: "transparent", // Ensures no background color
+            border: "none", // Removes any applied borders
+            outline: "none", // Prevents focus outlines
+            filter: "drop-shadow(0px 0px 5px rgba(0,0,0,0.3))", // Adds a soft glow to blend edges
           }}
         />
       </div>
