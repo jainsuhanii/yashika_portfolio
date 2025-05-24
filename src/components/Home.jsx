@@ -7,7 +7,6 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    alert("camera clicked");
     navigate("/about");
   };
 
@@ -52,7 +51,9 @@ const Home = () => {
             filter: "drop-shadow(0px 0px 5px rgba(0,0,0,0.3))", // Adds a soft glow to blend edges
           }}
         />
+        
       </div>
+      <p className="text-[20px] text-center mr-[-128px]">start with the camera, the rest are just tools.</p>
     </div>
   );
 };
