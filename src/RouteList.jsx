@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import About from './components/About.jsx'
-// import Projects from './Projects'
+import Work from './components/Work.jsx'
 // import Contact from './Contact'
 
 const Routing = () => {
@@ -10,8 +10,8 @@ const Routing = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/work" element={<Work />} />
+        {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
     </BrowserRouter>
   )
