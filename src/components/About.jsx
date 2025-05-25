@@ -1,5 +1,8 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import video from '../assets/video.mp4'
+import work from '../assets/work.png'
+import contact from '../assets/contact_me.png'
 
 const About = () => {
   const navigate = useNavigate();
@@ -38,7 +41,7 @@ const About = () => {
       <div className='flex w-[83%] h-[25%] relative'>
         <video 
           className="w-full rounded-[20px] h-full object-cover"
-          src="/src/assets/video.mp4"
+          src={video}
           // poster="/your-video-thumbnail.jpg"
           ref={videoRef}
           onPlay={() => setIsPlaying(true)}
@@ -50,7 +53,7 @@ const About = () => {
 
       <div className='flex w-[80%] justify-between items-center'>
         <div onClick={() => navigate('/work')} className='rounded-full p-4 bg-[#2b2b2b] cursor-pointer'>
-          <img src="/src/assets/work.png" className='size-[220px]' alt="" />
+          <img src={work} className='size-[220px]' alt="" />
         </div>
 
         <div className='flex flex-col items-center justify-center'>
@@ -72,7 +75,7 @@ const About = () => {
 
 
         <div className='rounded-full p-4 bg-[#2b2b2b]'>
-          <img className='size-18' src="/src/assets/contact_me.png" alt="" />
+          <img className='size-18' src={contact} alt="" />
         </div>
       </div>
 
