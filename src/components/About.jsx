@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import video from '../assets/video.mp4'
-import work from '../assets/work.png'
+import work from '../assets/work/fnp.png'
 import contact from '../assets/contact_me.png'
 
 const About = () => {
@@ -52,8 +52,8 @@ const About = () => {
       {/* Bottom section */}
 
       <div className='flex w-[80%] justify-between items-center'>
-        <div onClick={() => navigate('/work')} className='rounded-full p-4 bg-[#2b2b2b] cursor-pointer'>
-          <img src={work} className='size-[220px]' alt="" />
+        <div onClick={() => navigate('/work')} className='rounded-full p-4 cursor-pointer'>
+          <img src={work} className='size-[130px]' alt="" />
         </div>
 
         <div className='flex flex-col items-center justify-center'>
