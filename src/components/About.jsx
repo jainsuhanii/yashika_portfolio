@@ -1,13 +1,29 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import video from '../assets/video.mp4'
 import work from '../assets/work/fnp.png'
 import contact from '../assets/contact_me.png'
+import resume from '../assets/resume/resume.png'
+import fnp_2 from '../assets/work/fnp_2.png'
 
 const About = () => {
   const navigate = useNavigate();
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [hoverWork, setHoverWork] = useState(false);
+  const [hoverContact, setHoverContact] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const togglePlayPause = () => {
     if (videoRef.current) {
@@ -20,15 +36,26 @@ const About = () => {
     }
   };
 
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = resume;
+    link.download = 'Yashika_Resume';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <div className='h-100vh flex flex-col items-center justify-center'>
-      {/* TOP section  */}
-      
-      <div className='flex w-[80%] mt-[40px] justify-between items-center h-full p-4 rounded-lg shadow-lg'>
-        <div>
+    <div className='h-screen flex flex-col items-center justify-between py-3 md:py-6 px-2 md:px-0'>
+      {/* TOP section */}
+      <div className='flex w-full md:w-[80%] justify-between items-center p-2 md:p-3 rounded-lg shadow-lg text-sm md:text-base'>
+        <div 
+          onClick={downloadResume}
+          className="cursor-pointer hover:text-gray-300 transition-colors"
+        >
           RESUME
         </div>
-        <div>
+        <div className="hidden sm:block text-center">
           YASHIKA'S PORTFOLIO
         </div>
         <div>
@@ -37,12 +64,10 @@ const About = () => {
       </div>
 
       {/* Video section */}
-
-      <div className='flex w-[83%] h-[25%] relative'>
+      <div className='flex w-[95%] sm:w-[90%] md:w-[83%] h-[50vh] sm:h-[60vh] md:h-[70%] relative my-4'>
         <video 
-          className="w-full rounded-[20px] h-full object-cover"
+          className="w-full rounded-[12px] md:rounded-[20px] h-full object-cover"
           src={video}
-          // poster="/your-video-thumbnail.jpg"
           ref={videoRef}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
@@ -50,37 +75,56 @@ const About = () => {
       </div>
 
       {/* Bottom section */}
-
-      <div className='flex w-[80%] justify-between items-center'>
-        <div onClick={() => navigate('/work')} className='rounded-full p-4 cursor-pointer'>
-          <img src={work} className='size-[130px]' alt="" />
+      <div className='flex w-[95%] sm:w-[90%] md:w-[80%] justify-between items-center'>
+        <div 
+          onClick={() => navigate('/work')} 
+          className='rounded-xl p-2 md:p-3 cursor-pointer relative overflow-hidden'
+          onMouseEnter={() => setHoverWork(true)}
+          onMouseLeave={() => setHoverWork(false)}
+        >
+          <img 
+            src={hoverWork ? fnp_2 : work} 
+            className='size-[60px] sm:size-[80px] md:size-[110px] transition-all duration-500 ease-in-out transform'
+            style={{ 
+              transform: hoverWork ? 'scale(1.2)' : 'scale(1)',
+              opacity: 1,
+              filter: hoverWork ? 'brightness(1.1)' : 'brightness(1)'
+            }}
+            alt="My Work" 
+          />
         </div>
 
         <div className='flex flex-col items-center justify-center'>
-          <div className='text-[#FFE81A] text-3xl text-center mt-4 mb-2'>
-                  About Me
+          <div className='text-[#FFE81A] text-lg sm:text-xl md:text-2xl text-center mb-1 md:mb-2'>
+            About Me
           </div>
 
           <div 
-          className='flex items-center justify-center p-1 border-6 border-white size-[150px] rounded-full bg-transparent cursor-pointer transition-all duration-300' 
-          onClick={togglePlayPause}
+            className='flex items-center justify-center p-1 border-2 md:border-4 border-white size-[60px] sm:size-[80px] md:size-[100px] rounded-full bg-transparent cursor-pointer transition-all duration-300' 
+            onClick={togglePlayPause}
           >
-          {isPlaying ? (
-            <div className="size-20 rounded-md bg-[#F43939] transition-all duration-300 transform scale-100"></div>
-          ) : (
-            <div className="w-full h-full bg-[#F43939] rounded-full transition-all duration-300 transform scale-100"></div>
-          )}
+            {isPlaying ? (
+              <div className="size-6 sm:size-8 md:size-10 rounded-md bg-[#F43939] transition-all duration-300 transform scale-100"></div>
+            ) : (
+              <div className="w-full h-full bg-[#F43939] rounded-full transition-all duration-300 transform scale-100"></div>
+            )}
           </div>  
         </div>
 
-
-        <div className='rounded-full p-4 bg-[#2b2b2b]'>
-          <img className='size-18' src={contact} alt="" />
+        <div 
+          className='rounded-full p-2 md:p-3 bg-[#2b2b2b]' 
+          onClick={() => navigate('/contact')}
+          onMouseEnter={() => setHoverContact(true)}
+          onMouseLeave={() => setHoverContact(false)}
+        >
+          <img 
+            className='size-10 sm:size-14 md:size-16 transition-transform duration-300' 
+            src={contact} 
+            alt="Contact Me"
+            style={{ transform: hoverContact ? 'scale(1.1)' : 'scale(1)' }}
+          />
         </div>
       </div>
-
-
-
     </div>
   )
 }
