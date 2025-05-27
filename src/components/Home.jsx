@@ -44,10 +44,12 @@ const Home = () => {
         <img
           src={layer3}
           alt="Layer 3"
-          className="absolute w-full h-full top-[-14px] right-[15px] w-[400px] h-[400px] object-contain opacity-60 z-1 mt-[40px] pointer-events-none"
+          className="absolute w-full h-full top-[-13px] right-[15px] w-[400px] h-[400px] object-contain opacity-60 z-1 mt-[40px] pointer-events-none"
         />
       </div>
-      {/* <p className="text-[20px] text-center mr-[-128px]">start with the camera, the rest are just tools.</p> */}
+      <p className="inline-flex whitespace-nowrap text-center size-30 ml-[-120px]">
+  start with the camera, the rest are just tools.
+</p>
     </div>
   );
 };

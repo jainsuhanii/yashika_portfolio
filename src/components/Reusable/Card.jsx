@@ -1,13 +1,15 @@
 import { useState } from 'react';
 
-const Card = ({image, image_2, tittle, description, details}) => {
+const Card = ({image, image_2, tittle, description, details, onClick}) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
     <div className='flex flex-col rounded-2xl px-3 sm:px-4 items-center bg-[#1F1F1F] justify-center flex-shrink-0
                     w-full sm:w-[380px] md:w-[480px] lg:w-[540px] 
-                    h-auto min-h-[450px] sm:min-h-[550px] md:min-h-[600px] lg:h-[675px]'>
-
+                    h-auto min-h-[450px] sm:min-h-[550px] md:min-h-[600px] lg:h-[675px]'
+                      onClick={onClick}
+                      style={{cursor: 'pointer'}}
+>
         <div 
           className='relative overflow-hidden w-full flex items-center justify-center cursor-pointer'
           onMouseEnter={() => setIsHovered(true)}
