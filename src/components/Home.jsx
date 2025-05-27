@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import image from "../assets/image-copy.png";
 import camera from "../assets/home-camera_layer.png";
+import layer1 from "../assets/home-layer1.png";
+import layer2 from "../assets/home-layer2.png";
+import layer3 from "../assets/home-layer3.png";
+
 
 const Home = () => {
   const navigate = useNavigate();
+  const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
     navigate("/about");
@@ -14,46 +19,35 @@ const Home = () => {
     <div className="flex flex-col items-center justify-center h-screen bg-transparent">
       <h1 className="text-[180px] font-extralight">Portfolio</h1>
 
-      <div className="relative w-[500px] h-[400px]">
-        {/* Background Layer */}
+      <div className="relative w-[300px] h-[300px] mt-[-150px] size-[800px] overflow-hidden">
+        {/* Layer 1 */}
         <img
-          src={image}
-          alt="Folder Bottom"
-          className="absolute left-0 top-0 w-full h-full object-cover"
+          src={layer1}
+          alt="Layer 1"
+          className="absolute top-[30px] left-[-20px] w-[387px] h-[340px] object-contain opacity-100 z-[-1] pointer-events-none"
         />
-
-        {/* Camera Layer */}
+        {/* Layer 2 */}
+        <img
+          src={layer2}
+          alt="Layer 2"
+          className="absolute mt-[30px] ml-[-20px] w-full h-full z-0 pointer-events-none overflow-hidden"
+        />
         <img
           src={camera}
-          alt="Camera Icon"
+          alt="camera image"
+          className="w-36 h-36 z-2 ml-[100px] mt-[80px] cursor-pointer
+             transition-all duration-300 ease-in-out
+             hover:mt-[30px] hover:w-40 hover:h-40"
           onClick={handleClick}
-          className="
-            absolute 
-            left-1/2 
-            top-[35%] 
-            w-[40%] 
-            h-[50%] 
-            opacity-80 
-            object-cover 
-            cursor-pointer 
-            transform 
-            -translate-x-[20%] 
-            -translate-y-[80%] 
-            transition 
-            duration-300 
-            ease-in-out 
-            hover:scale-125 
-          "
-          style={{
-            backgroundColor: "transparent", // Ensures no background color
-            border: "none", // Removes any applied borders
-            outline: "none", // Prevents focus outlines
-            filter: "drop-shadow(0px 0px 5px rgba(0,0,0,0.3))", // Adds a soft glow to blend edges
-          }}
+        /> 
+        {/* Layer 3 */}
+        <img
+          src={layer3}
+          alt="Layer 3"
+          className="absolute w-full h-full top-[-14px] right-[15px] w-[400px] h-[400px] object-contain opacity-60 z-1 mt-[40px] pointer-events-none"
         />
-        
       </div>
-      <p className="text-[20px] text-center mr-[-128px]">start with the camera, the rest are just tools.</p>
+      {/* <p className="text-[20px] text-center mr-[-128px]">start with the camera, the rest are just tools.</p> */}
     </div>
   );
 };
