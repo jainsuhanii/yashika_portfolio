@@ -55,7 +55,8 @@ const About = () => {
         >
           RESUME
         </div>
-        <div className="hidden sm:block text-center">
+        <div className="hidden sm:block text-center"
+        onClick={() => navigate("/")}>
           YASHIKA'S PORTFOLIO
         </div>
         <div>
