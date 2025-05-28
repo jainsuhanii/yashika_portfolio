@@ -30,7 +30,7 @@ const Work = () => {
             image_2: chakra_4,
             title: "Chakra",
             description: "User research - Interface design",
-            link: "https://www.figma.com/proto/5tu4Ptf1JK8bBBhqakHuqX/Portfolio?node-id=1-176&p=f&t=Os9Lu5VmoAsBkeP7-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A429",
+            link: "https://www.behance.net/gallery/226495283/Chakra-UI-UX-case-study",
             details: "This project explores the challenges of organizing charity bike tours by engaging with tour owner, uncovering insights on logistics, community, and charitable impact. The goal is to design meaningful solutions that address the practical needs of biker-led social initiatives."
         },
         {
@@ -38,7 +38,7 @@ const Work = () => {
             image_2: fnp_4,
             title: "FNP",
             description: "Branding - Interface design",
-            link:"https://www.figma.com/proto/5tu4Ptf1JK8bBBhqakHuqX/Portfolio?node-id=1-260&p=f&t=Os9Lu5VmoAsBkeP7-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A429",
+            link:"https://www.behance.net/gallery/226486259/Ferns-and-Petals-%28FNP%29-Website-redesign",
             details: "This project is a redesign of the FNP (gifting platform) website, focused on creating a more intuitive, emotionally engaging, and visually cohesive user experience."
         },
         {
@@ -46,7 +46,7 @@ const Work = () => {
             image_2: airwise_4,
             title: "Airwise",
             description: "User research - Interface design",
-            link:"https://www.figma.com/proto/5tu4Ptf1JK8bBBhqakHuqX/Portfolio?node-id=1-779&p=f&t=Os9Lu5VmoAsBkeP7-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A429",
+            link:"https://www.behance.net/gallery/226485279/Airwise",
             details: "This project explores the challenges users face in understanding and managing air quality. The goal is to design a meaningful solution that simplifies air monitoring and empowers users to take informed actions for healthier indoor living."
         }
     ]
