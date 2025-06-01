@@ -67,14 +67,20 @@ const About = () => {
 
       {/* Video section */}
       <div className='flex w-[95%] sm:w-[90%] md:w-[83%] h-[50vh] sm:h-[60vh] md:h-[70%] relative my-4'>
-        <video 
-          className="w-full rounded-[12px] md:rounded-[20px] h-full object-cover"
-          src={VIDEO_URL}
-          ref={videoRef}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-        />
-      </div>
+  <video
+    className="w-full rounded-[12px] md:rounded-[20px] h-full object-cover"
+    src={VIDEO_URL}
+    ref={videoRef}
+    onPlay={() => setIsPlaying(true)}
+    onPause={() => setIsPlaying(false)}
+    playsInline
+    muted
+    autoPlay
+    loop
+    controls
+  />
+</div>
+
 
       {/* Bottom section */}
       <div className='flex w-[95%] sm:w-[90%] md:w-[80%] justify-between items-center'>
