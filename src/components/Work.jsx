@@ -13,6 +13,8 @@ const Work = () => {
     const AIRWISE = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/airwise.png';
     const AIRWISE_4 = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/airwise_4.png';
     const SIDE_ARROW = 'https://d3jku4fwsszirg.cloudfront.net/assets/side_arrow.png';
+    const ZUDO = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/zudo.png';
+    const ZUDO_4 = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/zudo_4.png';
 
     useEffect(() => {
         const handleResize = () => {
@@ -26,6 +28,14 @@ const Work = () => {
     }, []);
     
     const data = [
+        {
+            image: ZUDO,
+            image_2: ZUDO_4,
+            title: "Zudo",
+            description: "Sensory design - Product design",
+            link: "https://www.behance.net/gallery/227109093/ZUDO-Sensory-product-design",
+            details: "This project explores the challenge of reducing digital distractions and improving focus among students and  professionals. By engaging with user behaviors around procrastination, it aims to design an physical tool that supports structured work using the Pomodoro technique."
+        },
         {
             image: CHAKRA,
             image_2: CHAKRA_4,
