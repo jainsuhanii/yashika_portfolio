@@ -75,12 +75,11 @@ const About = () => {
     onPause={() => setIsPlaying(false)}
     playsInline
     muted
-    autoPlay
     loop
     controls
   />
 </div>
-
+=
 
       {/* Bottom section */}
       <div className='flex w-[95%] sm:w-[90%] md:w-[80%] justify-between items-center'>
