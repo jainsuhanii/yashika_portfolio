@@ -13,8 +13,8 @@ const Work = () => {
     const AIRWISE = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/airwise.png';
     const AIRWISE_4 = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/airwise_4.png';
     const SIDE_ARROW = 'https://d3jku4fwsszirg.cloudfront.net/assets/side_arrow.png';
-    const ZUDO = 'https://d3jku4fwsszirg.cloudfront.net/assets/zudo.png';
-    const ZUDO_4 = 'https://d3jku4fwsszirg.cloudfront.net/assets/zudo_4.png';
+    const ZUDO = 'https://d3jku4fwsszirg.cloudfront.net/assets/zudo.jpeg';
+    const ZUDO_4 = 'https://d3jku4fwsszirg.cloudfront.net/assets/zudo_4.jpeg';
 
     useEffect(() => {
         const handleResize = () => {
