@@ -9,7 +9,6 @@ const About = () => {
   const [hoverWork, setHoverWork] = useState(false);
   const [hoverContact, setHoverContact] = useState(false);
   
-  // Define URLs directly as constants instead of imports
   const VIDEO_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/video.mp4';
   const WORK_IMG_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/fnp.png';
   const CONTACT_IMG_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/contact_me.png';
@@ -48,7 +47,7 @@ const About = () => {
   };
 
   return (
-    <div className='h-screen flex flex-col items-center justify-between py-3 md:py-6 px-2 md:px-0'>
+    <div className='h-screen flex flex-col items-center justify-center md:justify-between py-3 md:py-6 px-2 md:px-0'>
       {/* TOP section */}
       <div className='flex w-full md:w-[80%] justify-between items-center p-2 md:p-3 rounded-lg shadow-lg text-sm md:text-base'>
         <div 

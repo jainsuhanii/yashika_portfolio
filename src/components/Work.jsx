@@ -1,14 +1,4 @@
 import Card from './Reusable/Card'
-<<<<<<< Updated upstream
-import chakra from '../assets/work/chakra.png'
-import fnp from '../assets/work/fnp.png'
-import fnp_4 from '../assets/work/fnp_4.png'
-import chakra_4 from '../assets/work/chakra_4.png'
-import side_arrow from '../assets/side_arrow.png'
-import airwise from '../assets/work/airwise.png'
-import airwise_4 from '../assets/work/airwise_4.png'
-=======
->>>>>>> Stashed changes
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -53,13 +43,8 @@ const Work = () => {
             details: "This project is a redesign of the FNP (gifting platform) website, focused on creating a more intuitive, emotionally engaging, and visually cohesive user experience."
         },
         {
-<<<<<<< Updated upstream
-            image: airwise,
-            image_2: airwise_4,
-=======
             image: AIRWISE,
             image_2: AIRWISE_4,
->>>>>>> Stashed changes
             title: "Airwise",
             description: "User research - Interface design",
             link:"https://www.behance.net/gallery/226485279/Airwise",
@@ -89,8 +74,7 @@ const Work = () => {
                         tittle={item.title} 
                         description={item.description} 
                         details={item.details}  
-                        onClick={()=> item.link && (window.location.href = item.link)}
-                    />
+                        onClick={() => item.link && window.open(item.link, '_blank')}                    />
                 ))}
             </div>
         </div>
