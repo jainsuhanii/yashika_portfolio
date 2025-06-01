@@ -1,10 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import video from '../assets/video.mp4'
-import work from '../assets/work/fnp.png'
-import contact from '../assets/contact_me.png'
-import resume from '../assets/resume/resume.png'
-import fnp_2 from '../assets/work/fnp_2.png'
 
 const About = () => {
   const navigate = useNavigate();
@@ -13,6 +8,13 @@ const About = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [hoverWork, setHoverWork] = useState(false);
   const [hoverContact, setHoverContact] = useState(false);
+  
+  // Define URLs directly as constants instead of imports
+  const VIDEO_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/video.mp4';
+  const WORK_IMG_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/fnp.png';
+  const CONTACT_IMG_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/contact_me.png';
+  const RESUME_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/resume/resume.png';
+  const FNP_2_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/fnp_2.png';
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,7 +40,7 @@ const About = () => {
 
   const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = resume;
+    link.href = RESUME_URL;
     link.download = 'Yashika_Resume';
     document.body.appendChild(link);
     link.click();
@@ -68,7 +70,7 @@ const About = () => {
       <div className='flex w-[95%] sm:w-[90%] md:w-[83%] h-[50vh] sm:h-[60vh] md:h-[70%] relative my-4'>
         <video 
           className="w-full rounded-[12px] md:rounded-[20px] h-full object-cover"
-          src={video}
+          src={VIDEO_URL}
           ref={videoRef}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
@@ -84,7 +86,7 @@ const About = () => {
           onMouseLeave={() => setHoverWork(false)}
         >
           <img 
-            src={hoverWork ? fnp_2 : work} 
+            src={hoverWork ? FNP_2_URL : WORK_IMG_URL} 
             className='size-[60px] sm:size-[80px] md:size-[110px] transition-all duration-500 ease-in-out transform'
             style={{ 
               transform: hoverWork ? 'scale(1.2)' : 'scale(1)',
@@ -120,7 +122,7 @@ const About = () => {
         >
           <img 
             className='size-10 sm:size-14 md:size-16 transition-transform duration-300' 
-            src={contact} 
+            src={CONTACT_IMG_URL} 
             alt="Contact Me"
             style={{ transform: hoverContact ? 'scale(1.1)' : 'scale(1)' }}
           />
