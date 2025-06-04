@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import video from '../assets/video.mp4';
 
 const About = () => {
   const navigate = useNavigate();
@@ -69,7 +70,7 @@ const About = () => {
       <div className='flex w-[95%] sm:w-[90%] md:w-[83%] h-[50vh] sm:h-[60vh] md:h-[70%] relative my-4'>
   <video
     className="w-full rounded-[12px] md:rounded-[20px] h-full object-cover"
-    src={VIDEO_URL}
+    src={video}
     ref={videoRef}
     onPlay={() => setIsPlaying(true)}
     onPause={() => setIsPlaying(false)}
