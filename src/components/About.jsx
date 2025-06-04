@@ -72,6 +72,7 @@ const About = () => {
     ref={videoRef}
     onPlay={() => setIsPlaying(true)}
     onPause={() => setIsPlaying(false)}
+    type="video/mp4"
     playsInline
   />
 </div>
