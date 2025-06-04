@@ -74,10 +74,6 @@ const About = () => {
     onPlay={() => setIsPlaying(true)}
     onPause={() => setIsPlaying(false)}
     playsInline
-    muted
-    autoPlay
-    loop
-    controls
   />
 </div>
 
