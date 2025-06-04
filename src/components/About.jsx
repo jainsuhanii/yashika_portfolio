@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import video from '../assets/video.mp4';
 
 const About = () => {
   const navigate = useNavigate();
@@ -39,47 +38,19 @@ const About = () => {
   };
 
   const downloadResume = () => {
-    // Create an image element to load the image first
-    const img = new Image();
-    img.crossOrigin = "anonymous"; // Important for CORS
-    img.src = RESUME_URL;
-    
-    img.onload = function() {
-      // Create a canvas to draw the image
-      const canvas = document.createElement('canvas');
-      canvas.width = img.width;
-      canvas.height = img.height;
-      
-      // Draw the image on the canvas
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-      
-      // Convert canvas to data URL and trigger download
-      try {
-        const dataURL = canvas.toDataURL('image/png');
-        
-        const link = document.createElement('a');
-        link.href = dataURL;
-        link.download = 'Yashika_Resume.png';
-        document.body.appendChild(link);
-        link.click();
-        
-        // Clean up
-        setTimeout(() => {
-          document.body.removeChild(link);
-        }, 100);
-      } catch (e) {
-        console.error("Error downloading image:", e);
-        // Fallback method - open in new tab
-        window.open(RESUME_URL, '_blank');
-      }
-    };
-    
-    img.onerror = function() {
-      console.error("Failed to load the image");
-      window.open(RESUME_URL, '_blank');
-    };
-  };
+     try {
+    const link = document.createElement('a');
+    link.href = RESUME_URL;
+    link.download = 'Yashika_Resume.png';
+    link.target = '_blank'; // Fallback to opening in new tab
+    document.body.appendChild(link);
+    link.click();
+    setTimeout(() => document.body.removeChild(link), 100);
+  } catch (e) {
+    console.error("Error downloading resume:", e);
+    window.open(RESUME_URL, '_blank');
+  }
+};
 
   return (
     <div className='h-screen flex flex-col items-center justify-center md:justify-between py-3 md:py-6 px-2 md:px-0'>
@@ -104,7 +75,7 @@ const About = () => {
       <div className='flex w-[95%] sm:w-[90%] md:w-[83%] h-[50vh] sm:h-[60vh] md:h-[70%] relative my-4'>
   <video
     className="w-full rounded-[12px] md:rounded-[20px] h-full object-cover"
-    src={video}
+    src={VIDEO_URL}
     ref={videoRef}
     onPlay={() => setIsPlaying(true)}
     onPause={() => setIsPlaying(false)}
