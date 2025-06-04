@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import resume from '../assets/resume/resume.png';
 const About = () => {
   const navigate = useNavigate();
   const videoRef = useRef(null);
@@ -12,7 +12,6 @@ const About = () => {
   const VIDEO_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/video.mp4';
   const WORK_IMG_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/fnp.png';
   const CONTACT_IMG_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/contact_me.png';
-  const RESUME_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/resume/resume.png';
   const FNP_2_URL = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/fnp_2.png';
 
   useEffect(() => {
@@ -37,20 +36,14 @@ const About = () => {
     }
   };
 
-  const downloadResume = () => {
-     try {
+ const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = RESUME_URL;
-    link.download = 'Yashika_Resume.png';
-    link.target = '_blank'; // Fallback to opening in new tab
+    link.href = resume;
+    link.download = 'Yashika_Resume';
     document.body.appendChild(link);
     link.click();
-    setTimeout(() => document.body.removeChild(link), 100);
-  } catch (e) {
-    console.error("Error downloading resume:", e);
-    window.open(RESUME_URL, '_blank');
-  }
-};
+    document.body.removeChild(link);
+  };
 
   return (
     <div className='h-screen flex flex-col items-center justify-center md:justify-between py-3 md:py-6 px-2 md:px-0'>
