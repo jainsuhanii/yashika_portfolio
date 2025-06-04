@@ -39,12 +39,46 @@ const About = () => {
   };
 
   const downloadResume = () => {
-    const link = document.createElement('a');
-    link.href = RESUME_URL;
-    link.download = 'Yashika_Resume';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Create an image element to load the image first
+    const img = new Image();
+    img.crossOrigin = "anonymous"; // Important for CORS
+    img.src = RESUME_URL;
+    
+    img.onload = function() {
+      // Create a canvas to draw the image
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      
+      // Draw the image on the canvas
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      
+      // Convert canvas to data URL and trigger download
+      try {
+        const dataURL = canvas.toDataURL('image/png');
+        
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = 'Yashika_Resume.png';
+        document.body.appendChild(link);
+        link.click();
+        
+        // Clean up
+        setTimeout(() => {
+          document.body.removeChild(link);
+        }, 100);
+      } catch (e) {
+        console.error("Error downloading image:", e);
+        // Fallback method - open in new tab
+        window.open(RESUME_URL, '_blank');
+      }
+    };
+    
+    img.onerror = function() {
+      console.error("Failed to load the image");
+      window.open(RESUME_URL, '_blank');
+    };
   };
 
   return (
@@ -57,7 +91,7 @@ const About = () => {
         >
           RESUME
         </div>
-        <div className="hidden sm:block text-center"
+        <div className="hidden sm:block text-center cursor-pointer hover:text-gray-300 transition-colors"
         onClick={() => navigate("/")}>
           YASHIKA'S PORTFOLIO
         </div>
