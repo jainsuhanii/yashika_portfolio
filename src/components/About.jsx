@@ -9,7 +9,7 @@ const About = () => {
   const [hoverWork, setHoverWork] = useState(false);
   const [hoverContact, setHoverContact] = useState(false);
 
-  const VIDEO_URL = "https://d3jku4fwsszirg.cloudfront.net/assets/video.mp4";
+  const VIDEO_URL = "https://d3jku4fwsszirg.cloudfront.net/assets/Yashika.mp4";
   const WORK_IMG_URL =
     "https://d3jku4fwsszirg.cloudfront.net/assets/work/fnp.png";
   const CONTACT_IMG_URL =
