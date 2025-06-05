@@ -75,7 +75,6 @@ const About = () => {
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           playsInline
-          controls
         >
          <source src={VIDEO_URL} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />  {/* for Chrome and most browsers */}
   <source src={VIDEO_URL} type='video/mp4; codecs="hev1"' />  
