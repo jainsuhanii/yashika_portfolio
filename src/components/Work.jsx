@@ -13,13 +13,8 @@ const Work = () => {
     const AIRWISE = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/airwise.png';
     const AIRWISE_4 = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/airwise_4.png';
     const SIDE_ARROW = 'https://d3jku4fwsszirg.cloudfront.net/assets/side_arrow.png';
-<<<<<<< Updated upstream
-    const ZUDO = 'https://d3jku4fwsszirg.cloudfront.net/assets/zudo.jpeg';
-    const ZUDO_4 = 'https://d3jku4fwsszirg.cloudfront.net/assets/zudo_4.jpeg';
-=======
     const ZUDO = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/zudo.png';
     const ZUDO_4 = 'https://d3jku4fwsszirg.cloudfront.net/assets/work/zudo_4.png';
->>>>>>> Stashed changes
 
     useEffect(() => {
         const handleResize = () => {
