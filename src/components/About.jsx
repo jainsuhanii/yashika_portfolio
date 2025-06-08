@@ -68,21 +68,6 @@ const About = () => {
       </div>
 
       {/* Video section */}
-<<<<<<< Updated upstream
-      <div className="flex w-[95%] sm:w-[90%] md:w-[83%] h-[50vh] sm:h-[60vh] md:h-[70%] relative my-4">
-        <video
-          className="w-full rounded-[12px] md:rounded-[20px] h-full object-cover"
-          ref={videoRef}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-          playsInline
-        >
-         <source src={VIDEO_URL} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />  {/* for Chrome and most browsers */}
-  <source src={VIDEO_URL} type='video/mp4; codecs="hev1"' />  
-          Your browser does not support the video tag.
-        </video>
-      </div>
-=======
       <div className='flex w-[95%] sm:w-[90%] md:w-[83%] h-[50vh] sm:h-[60vh] md:h-[70%] relative my-4'>
   <video
     className="w-full rounded-[12px] md:rounded-[20px] h-full object-cover"
@@ -90,13 +75,9 @@ const About = () => {
     ref={videoRef}
     onPlay={() => setIsPlaying(true)}
     onPause={() => setIsPlaying(false)}
-    playsInline
-    muted
-    loop
-    controls
+    playsInline    
   />
 </div>
->>>>>>> Stashed changes
 
       {/* Bottom section */}
       <div className="flex w-[95%] sm:w-[90%] md:w-[80%] justify-between items-center">
